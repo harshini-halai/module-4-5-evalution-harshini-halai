@@ -49,7 +49,6 @@ def test_non_commercial_source_excluded():
     kept, dropped = p.stage_b_records(recs, registry)
     assert [r["id"] for r in kept] == ["A"] and len(dropped) == 3
 
-
 def test_derived_model_inherits_base_licence():
     models = [
         {"model_id": "base", "licence": "custom-community", "base_model": None, "mau_limit": 1_000_000},
@@ -60,13 +59,12 @@ def test_derived_model_inherits_base_licence():
     assert rep["ft"]["eligible"] is False          # 2M MAU exceeds the inherited 1M limit
     assert rep["ft"]["warning"] is not None
 
-
 # ---- Part C
+
 def test_case_and_whitespace_exact_duplicate():
     recs = [alpaca("A", out="Use the tracking page."), alpaca("B", instr="WHERE  is my   parcel", out="use the TRACKING page.")]
     kept, _, n_exact, n_near = p.dedupe(recs)
     assert [r["id"] for r in kept] == ["A"] and n_exact == 1 and n_near == 0
-
 
 def test_near_duplicate_keeps_earlier():
     a = alpaca("A", instr="a b c d e f g h i j", out="k")
@@ -74,13 +72,12 @@ def test_near_duplicate_keeps_earlier():
     kept, rej, _, n_near = p.dedupe([a, b])
     assert [r["id"] for r in kept] == ["A"] and n_near == 1 and "A" in rej[0]["detail"]
 
-
 def test_dissimilar_records_survive():
     kept, _, _, _ = p.dedupe([alpaca("A", instr="track my parcel"), alpaca("B", instr="refund my invoice", out="billing dashboard")])
     assert len(kept) == 2
 
-
 # ---- Part D
+
 def test_leak_exact_and_near_and_clean():
     pool = [alpaca("A", instr="Where is my parcel KL123 going to Pune today please")]
     items = [
@@ -90,7 +87,6 @@ def test_leak_exact_and_near_and_clean():
     ]
     clean, leaks = p.find_leaks(items, pool)
     assert [l["eval_id"] for l in leaks] == ["E1", "E2"] and [c["eval_id"] for c in clean] == ["E3"]
-
 
 def test_split_is_stratified_and_deterministic():
     recs = [alpaca("R%02d" % i, intent="billing") for i in range(20)] + [alpaca("S%02d" % i, intent="returns") for i in range(10)]
