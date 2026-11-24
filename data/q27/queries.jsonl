@@ -1,0 +1,20 @@
+{"query_id": "Q01", "query": "How many days of PTO does an FTE get each year?", "gold": [{"doc": "leave_policy.md", "start": 333, "end": 439}]}
+{"query_id": "Q02", "query": "Can contractors take paid annual leave?", "gold": [{"doc": "leave_policy.md", "start": 627, "end": 713}]}
+{"query_id": "Q03", "query": "Can I take leave while I am on probation?", "gold": [{"doc": "leave_policy.md", "start": 976, "end": 1089}]}
+{"query_id": "Q04", "query": "How much unused leave can be carried forward to next year?", "gold": [{"doc": "leave_policy.md", "start": 1168, "end": 1268}]}
+{"query_id": "Q05", "query": "Do I need approval to WFH on a Friday?", "gold": [{"doc": "remote_work.md", "start": 278, "end": 376}]}
+{"query_id": "Q06", "query": "How much is the home office equipment stipend?", "gold": [{"doc": "remote_work.md", "start": 764, "end": 934}]}
+{"query_id": "Q07", "query": "What happens if a damaged goods claim is filed late, after the window?", "gold": [{"doc": "damaged_goods.md", "start": 699, "end": 840}]}
+{"query_id": "Q08", "query": "How many photographs are required for a damage claim?", "gold": [{"doc": "damaged_goods.md", "start": 460, "end": 567}]}
+{"query_id": "Q09", "query": "Where do I get an RMA number?", "gold": [{"doc": "returns_policy.md", "start": 356, "end": 512}]}
+{"query_id": "Q10", "query": "How long is the prepaid return label valid?", "gold": [{"doc": "returns_policy.md", "start": 704, "end": 762}]}
+{"query_id": "Q11", "query": "What is the SLA for standard delivery to a tier-2 city?", "gold": [{"doc": "shipping_sla.md", "start": 371, "end": 515}]}
+{"query_id": "Q12", "query": "What compensation does a merchant get when a delivery is late?", "gold": [{"doc": "shipping_sla.md", "start": 727, "end": 862}]}
+{"query_id": "Q13", "query": "What is the express surcharge per parcel?", "gold": [{"doc": "shipping_sla.md", "start": 644, "end": 725}]}
+{"query_id": "Q14", "query": "How many lithium batteries can one air parcel contain under DG rules?", "gold": [{"doc": "dangerous_goods.md", "start": 385, "end": 461}]}
+{"query_id": "Q15", "query": "What is the daily allowance in a metro city?", "gold": [{"doc": "expense_policy.md", "start": 246, "end": 355}]}
+{"query_id": "Q16", "query": "What is the deadline for submitting an expense claim?", "gold": [{"doc": "expense_policy.md", "start": 513, "end": 670}]}
+{"query_id": "Q17", "query": "How quickly must I report an incident to the SOC?", "gold": [{"doc": "security_policy.md", "start": 421, "end": 581}]}
+{"query_id": "Q18", "query": "How often must passwords be changed, and is MFA required?", "gold": [{"doc": "security_policy.md", "start": 204, "end": 309}, {"doc": "security_policy.md", "start": 310, "end": 419}]}
+{"query_id": "Q19", "query": "What is the time limit for raising a billing dispute?", "gold": [{"doc": "billing_disputes.md", "start": 176, "end": 275}]}
+{"query_id": "Q20", "query": "How long is the probation period for new joiners?", "gold": [{"doc": "leave_policy.md", "start": 927, "end": 975}, {"doc": "onboarding.md", "start": 550, "end": 583}]}

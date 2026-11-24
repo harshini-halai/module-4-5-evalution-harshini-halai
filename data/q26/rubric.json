@@ -1,0 +1,113 @@
+{
+  "max_words": 90,
+  "intents": {
+    "track_shipment": [
+      {
+        "check": "contains_any",
+        "values": [
+          "tracking"
+        ]
+      },
+      {
+        "check": "contains_any",
+        "values": [
+          "AWB",
+          "tracking number"
+        ]
+      },
+      {
+        "check": "not_contains",
+        "values": [
+          "guaranteed",
+          "guarantee"
+        ]
+      }
+    ],
+    "returns": [
+      {
+        "check": "contains_any",
+        "values": [
+          "30 days"
+        ]
+      },
+      {
+        "check": "contains_any",
+        "values": [
+          "RMA",
+          "Return Merchandise Authorisation"
+        ]
+      },
+      {
+        "check": "not_contains",
+        "values": [
+          "refund today",
+          "instant refund"
+        ]
+      }
+    ],
+    "billing": [
+      {
+        "check": "contains_any",
+        "values": [
+          "merchant dashboard"
+        ]
+      },
+      {
+        "check": "contains_any",
+        "values": [
+          "60 days"
+        ]
+      },
+      {
+        "check": "not_contains",
+        "values": [
+          "waive",
+          "waived"
+        ]
+      }
+    ],
+    "address_change": [
+      {
+        "check": "contains_any",
+        "values": [
+          "before dispatch"
+        ]
+      },
+      {
+        "check": "contains_any",
+        "values": [
+          "OTP"
+        ]
+      },
+      {
+        "check": "not_contains",
+        "values": [
+          "guaranteed",
+          "guarantee"
+        ]
+      }
+    ],
+    "damaged_goods": [
+      {
+        "check": "contains_any",
+        "values": [
+          "7 days"
+        ]
+      },
+      {
+        "check": "contains_any",
+        "values": [
+          "photographs",
+          "photos"
+        ]
+      },
+      {
+        "check": "not_contains",
+        "values": [
+          "guaranteed",
+          "guarantee"
+        ]
+      }
+    ]
+  }
+}

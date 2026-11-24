@@ -1,0 +1,22 @@
+{
+  "kestrel_support_logs": {
+    "licence": "proprietary-internal",
+    "owner": "Kestrel Logistics",
+    "notes": "Anonymised support transcripts, owned by Kestrel."
+  },
+  "agent_written": {
+    "licence": "proprietary-internal",
+    "owner": "Kestrel Logistics",
+    "notes": "Written by Kestrel support leads for training."
+  },
+  "openhelpdesk_cc_by_nc": {
+    "licence": "CC-BY-NC-4.0",
+    "owner": "OpenHelpdesk community",
+    "notes": "Public helpdesk Q&A dataset."
+  },
+  "forum_scrape_2023": {
+    "licence": "unknown",
+    "owner": "unknown",
+    "notes": "Scraped from a public forum by a former contractor; no licence recorded."
+  }
+}

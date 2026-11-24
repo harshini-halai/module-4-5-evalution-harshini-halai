@@ -1,0 +1,12 @@
+{
+  "FTE": "full-time employee",
+  "PTO": "paid annual leave",
+  "RMA": "Return Merchandise Authorisation",
+  "DG": "dangerous goods",
+  "SLA": "service level agreement",
+  "WFH": "work from home",
+  "SOC": "Security Operations Centre",
+  "MFA": "multi-factor authentication",
+  "T&E": "travel and expense",
+  "HO": "home office"
+}

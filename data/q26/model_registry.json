@@ -1,0 +1,54 @@
+[
+  {
+    "model_id": "kestrel/candidate-qwenlike-1.5b",
+    "params_b": 1.5,
+    "licence": "Apache-2.0",
+    "base_model": null,
+    "mau_limit": null
+  },
+  {
+    "model_id": "kestrel/candidate-llamalike-3b",
+    "params_b": 3.0,
+    "licence": "custom-community",
+    "base_model": null,
+    "mau_limit": 700000000,
+    "licence_notes": "Commercial use permitted. A separate licence must be requested once monthly active users exceed mau_limit."
+  },
+  {
+    "model_id": "kestrel/candidate-mistrallike-7b",
+    "params_b": 7.2,
+    "licence": "Apache-2.0",
+    "base_model": null,
+    "mau_limit": null
+  },
+  {
+    "model_id": "kestrel/candidate-medtune-3b",
+    "params_b": 3.0,
+    "licence": "CC-BY-NC-4.0",
+    "base_model": null,
+    "mau_limit": null
+  },
+  {
+    "model_id": "kestrel/candidate-research-2b",
+    "params_b": 2.0,
+    "licence": "research-only",
+    "base_model": null,
+    "mau_limit": null
+  },
+  {
+    "model_id": "kestrel/candidate-fastchat-1b",
+    "params_b": 1.1,
+    "licence": "other",
+    "base_model": null,
+    "mau_limit": null,
+    "licence_notes": "See repository."
+  },
+  {
+    "model_id": "community/llamalike-3b-support-ft",
+    "params_b": 3.0,
+    "licence": "Apache-2.0",
+    "base_model": "kestrel/candidate-llamalike-3b",
+    "mau_limit": null,
+    "licence_notes": "Uploader-declared licence."
+  }
+]
