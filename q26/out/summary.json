@@ -1,0 +1,112 @@
+{
+  "A_valid": 266,
+  "A_rejected": {
+    "EMPTY_OUTPUT": 8,
+    "TEMPLATE_RESIDUE": 8,
+    "MALFORMED": 5,
+    "BAD_INTENT": 4
+  },
+  "B_dropped_by_licence": 20,
+  "B_eligible_models": [
+    "kestrel/candidate-qwenlike-1.5b",
+    "kestrel/candidate-llamalike-3b",
+    "kestrel/candidate-mistrallike-7b",
+    "community/llamalike-3b-support-ft"
+  ],
+  "B_blocked_models": [
+    "kestrel/candidate-medtune-3b",
+    "kestrel/candidate-research-2b",
+    "kestrel/candidate-fastchat-1b"
+  ],
+  "C_exact_removed": 12,
+  "C_near_removed": 12,
+  "C_pool": 222,
+  "D_leaked": [
+    {
+      "eval_id": "E026",
+      "record_id": "R0101",
+      "similarity": 1.0
+    },
+    {
+      "eval_id": "E049",
+      "record_id": "R0189",
+      "similarity": 1.0
+    },
+    {
+      "eval_id": "E013",
+      "record_id": "R0076",
+      "similarity": 1.0
+    },
+    {
+      "eval_id": "E038",
+      "record_id": "R0142",
+      "similarity": 1.0
+    },
+    {
+      "eval_id": "E014",
+      "record_id": "R0084",
+      "similarity": 1.0
+    },
+    {
+      "eval_id": "E001",
+      "record_id": "R0021",
+      "similarity": 1.0
+    },
+    {
+      "eval_id": "E002",
+      "record_id": "R0007",
+      "similarity": 1.0
+    },
+    {
+      "eval_id": "E025",
+      "record_id": "R0097",
+      "similarity": 1.0
+    },
+    {
+      "eval_id": "E050",
+      "record_id": "R0215",
+      "similarity": 1.0
+    },
+    {
+      "eval_id": "E037",
+      "record_id": "R0169",
+      "similarity": 1.0
+    }
+  ],
+  "D_clean_eval": 52,
+  "E_train": 201,
+  "E_val": 21,
+  "F_scores": {
+    "base": {
+      "full": 55.6,
+      "clean": 55.8,
+      "leaked_only": 55.0,
+      "per_intent_clean": {
+        "address_change": 50.0,
+        "billing": 25.0,
+        "damaged_goods": 75.0,
+        "returns": 75.0,
+        "track_shipment": 50.0
+      }
+    },
+    "fine_tuned": {
+      "full": 66.5,
+      "clean": 60.1,
+      "leaked_only": 100.0,
+      "per_intent_clean": {
+        "address_change": 50.0,
+        "billing": 50.0,
+        "damaged_goods": 50.0,
+        "returns": 75.0,
+        "track_shipment": 75.0
+      }
+    }
+  },
+  "F_gain_full": 10.9,
+  "F_gain_clean": 4.3,
+  "extra_leak_counts": {
+    "vs_post_C_pool": 10,
+    "vs_post_B_pool_before_dedup": 10,
+    "vs_raw_after_A_no_licence_gate": 12
+  }
+}

@@ -1,0 +1,70 @@
+id,stage,reason,detail
+R0222,A,EMPTY_OUTPUT,output empty after stripping
+R0271,A,TEMPLATE_RESIDUE,contains {{
+R0255,A,TEMPLATE_RESIDUE,contains {{
+R9800,A,MALFORMED,alpaca record lacks instruction or output
+R0272,A,TEMPLATE_RESIDUE,contains <|im_end|>
+R0270,A,EMPTY_OUTPUT,output empty after stripping
+R0269,A,EMPTY_OUTPUT,output empty after stripping
+R9002,A,MALFORMED,invalid JSON: Unterminated string starting at
+R9000,A,MALFORMED,invalid JSON: Unterminated string starting at
+R9001,A,MALFORMED,invalid JSON: Unterminated string starting at
+R0241,A,BAD_INTENT,intent='refund'
+R0240,A,TEMPLATE_RESIDUE,contains <|im_end|>
+R0237,A,EMPTY_OUTPUT,output empty after stripping
+R0224,A,TEMPLATE_RESIDUE,contains <|im_end|>
+R0221,A,EMPTY_OUTPUT,output empty after stripping
+R0239,A,TEMPLATE_RESIDUE,contains {{
+R0225,A,BAD_INTENT,intent='tracking'
+R0254,A,EMPTY_OUTPUT,output empty after stripping
+R9801,A,MALFORMED,alpaca record lacks instruction or output
+R0253,A,EMPTY_OUTPUT,output empty after stripping
+R0257,A,BAD_INTENT,intent=''
+R0223,A,TEMPLATE_RESIDUE,contains {{
+R0273,A,BAD_INTENT,intent='complaint'
+R0238,A,EMPTY_OUTPUT,output empty after stripping
+R0256,A,TEMPLATE_RESIDUE,contains <|im_end|>
+R0281,B,LICENCE,source=openhelpdesk_cc_by_nc licence=CC-BY-NC-4.0
+R0280,B,LICENCE,source=openhelpdesk_cc_by_nc licence=CC-BY-NC-4.0
+R0265,B,LICENCE,source=openhelpdesk_cc_by_nc licence=CC-BY-NC-4.0
+R0284,B,LICENCE,source=forum_scrape_2023 licence=unknown
+R0252,B,LICENCE,source=forum_scrape_2023 licence=unknown
+R0248,B,LICENCE,source=openhelpdesk_cc_by_nc licence=CC-BY-NC-4.0
+R0267,B,LICENCE,source=forum_scrape_2023 licence=unknown
+R0249,B,LICENCE,source=openhelpdesk_cc_by_nc licence=CC-BY-NC-4.0
+R0283,B,LICENCE,source=forum_scrape_2023 licence=unknown
+R0264,B,LICENCE,source=openhelpdesk_cc_by_nc licence=CC-BY-NC-4.0
+R0251,B,LICENCE,source=forum_scrape_2023 licence=unknown
+R0250,B,LICENCE,source=openhelpdesk_cc_by_nc licence=CC-BY-NC-4.0
+R0234,B,LICENCE,source=openhelpdesk_cc_by_nc licence=CC-BY-NC-4.0
+R0266,B,LICENCE,source=openhelpdesk_cc_by_nc licence=CC-BY-NC-4.0
+R0282,B,LICENCE,source=openhelpdesk_cc_by_nc licence=CC-BY-NC-4.0
+R0233,B,LICENCE,source=openhelpdesk_cc_by_nc licence=CC-BY-NC-4.0
+R0236,B,LICENCE,source=forum_scrape_2023 licence=unknown
+R0232,B,LICENCE,source=openhelpdesk_cc_by_nc licence=CC-BY-NC-4.0
+R0235,B,LICENCE,source=forum_scrape_2023 licence=unknown
+R0268,B,LICENCE,source=forum_scrape_2023 licence=unknown
+R0016,C,EXACT_DUPLICATE,duplicate of R0226
+R0119,C,EXACT_DUPLICATE,duplicate of R0258
+R0274,C,EXACT_DUPLICATE,duplicate of R0186
+R0227,C,EXACT_DUPLICATE,duplicate of R0017
+R0217,C,EXACT_DUPLICATE,duplicate of R0275
+R0276,C,EXACT_DUPLICATE,duplicate of R0177
+R0010,C,EXACT_DUPLICATE,duplicate of R0228
+R0244,C,EXACT_DUPLICATE,duplicate of R0072
+R0260,C,EXACT_DUPLICATE,duplicate of R0105
+R0047,C,EXACT_DUPLICATE,duplicate of R0243
+R0259,C,EXACT_DUPLICATE,duplicate of R0130
+R0242,C,EXACT_DUPLICATE,duplicate of R0049
+R0279,C,NEAR_DUPLICATE,jaccard=1.000 with R0184
+R0278,C,NEAR_DUPLICATE,jaccard=0.979 with R0179
+R0102,C,NEAR_DUPLICATE,jaccard=0.980 with R0262
+R0060,C,NEAR_DUPLICATE,jaccard=0.980 with R0245
+R0113,C,NEAR_DUPLICATE,jaccard=0.980 with R0263
+R0231,C,NEAR_DUPLICATE,jaccard=0.978 with R0030
+R0247,C,NEAR_DUPLICATE,jaccard=0.979 with R0068
+R0230,C,NEAR_DUPLICATE,jaccard=1.000 with R0018
+R0277,C,NEAR_DUPLICATE,jaccard=1.000 with R0205
+R0024,C,NEAR_DUPLICATE,jaccard=1.000 with R0229
+R0261,C,NEAR_DUPLICATE,jaccard=1.000 with R0126
+R0046,C,NEAR_DUPLICATE,jaccard=0.981 with R0246

@@ -1,0 +1,58 @@
+[
+  {
+    "model_id": "kestrel/candidate-qwenlike-1.5b",
+    "declared_licence": "Apache-2.0",
+    "effective_licence": "Apache-2.0",
+    "eligible": true,
+    "reason": "Apache-2.0 permits commercial use",
+    "warning": null
+  },
+  {
+    "model_id": "kestrel/candidate-llamalike-3b",
+    "declared_licence": "custom-community",
+    "effective_licence": "custom-community",
+    "eligible": true,
+    "reason": "custom-community licence; 2,000,000 MAU is within mau_limit 700,000,000",
+    "warning": null
+  },
+  {
+    "model_id": "kestrel/candidate-mistrallike-7b",
+    "declared_licence": "Apache-2.0",
+    "effective_licence": "Apache-2.0",
+    "eligible": true,
+    "reason": "Apache-2.0 permits commercial use",
+    "warning": null
+  },
+  {
+    "model_id": "kestrel/candidate-medtune-3b",
+    "declared_licence": "CC-BY-NC-4.0",
+    "effective_licence": "CC-BY-NC-4.0",
+    "eligible": false,
+    "reason": "effective licence CC-BY-NC-4.0 is not allowed for a commercial product",
+    "warning": null
+  },
+  {
+    "model_id": "kestrel/candidate-research-2b",
+    "declared_licence": "research-only",
+    "effective_licence": "research-only",
+    "eligible": false,
+    "reason": "effective licence research-only is not allowed for a commercial product",
+    "warning": null
+  },
+  {
+    "model_id": "kestrel/candidate-fastchat-1b",
+    "declared_licence": "other",
+    "effective_licence": "other",
+    "eligible": false,
+    "reason": "effective licence other is not allowed for a commercial product",
+    "warning": null
+  },
+  {
+    "model_id": "community/llamalike-3b-support-ft",
+    "declared_licence": "Apache-2.0",
+    "effective_licence": "custom-community",
+    "eligible": true,
+    "reason": "custom-community licence; 2,000,000 MAU is within mau_limit 700,000,000",
+    "warning": "declared licence Apache-2.0 differs from effective licence custom-community (inherited via kestrel/candidate-llamalike-3b)"
+  }
+]
