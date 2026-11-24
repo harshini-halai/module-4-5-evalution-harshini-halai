@@ -3,9 +3,9 @@
 ## 1. AI & Resource Usage
 
 - Used Claude to draft the chunkers, retrieval metrics, grounding
-  check, safe calculator and agent loop, and to explain the results. I ran everything and checked the numbers
-  myself, and wrote the README answers in my own words.
-- Python docs for the ast module and re.
+  check, safe calculator and agent loop, and to explain the results. Used Claude to help write these notes and the README answers. I checked them against my own results.json.
+- Python ast docs for the safe calculator (walking the tree and allowing only numbers and + - * / ** % operators).
+- Python docs for re.finditer to get character offsets for chunks.
 
 ## 2. Design reasoning
 
