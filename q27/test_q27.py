@@ -6,12 +6,12 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import agent
 import grounding
 import rag
-from mock_llm import MockLLM
+from mock_llm import MockLLM  # type: ignore[import-not-found]
 
 TEXT = "# Title\n\nAlpha beta gamma delta. Epsilon zeta eta theta.\n\nIota kappa lambda mu nu xi omicron pi rho sigma tau."
 
 
-# ---- chunkers: offsets round-trip
+# chunkers: offsets round-trip
 def test_fixed_chunk_offsets_round_trip():
     chunks = rag.fixed_chunks("d.md", TEXT, size=5, overlap=2)
     assert chunks
@@ -40,7 +40,7 @@ def test_long_paragraph_is_split_on_sentences():
     assert len(chunks) == 2 and all(long_para[c["start"]:c["end"]] == c["text"] for c in chunks)
 
 
-# ---- metrics on a hand-made example
+#  metrics on a hand-made example
 def test_metrics_known_answer():
     gold = [{"doc": "a.md", "start": 10, "end": 20}, {"doc": "a.md", "start": 50, "end": 60}]
     retrieved = [
@@ -60,7 +60,7 @@ def test_reciprocal_rank_zero_when_nothing_relevant():
     assert m["rr"] == 0.0 and m["recall"] == 0.0
 
 
-# ---- query rewriting
+# query rewriting
 def test_rewrite_whole_word_case_sensitive():
     gl = {"FTE": "full-time employee", "T&E": "travel and expense"}
     assert rag.rewrite_query("How many days for an FTE?", gl) == "How many days for an FTE (full-time employee)?"
@@ -68,7 +68,7 @@ def test_rewrite_whole_word_case_sensitive():
     assert rag.rewrite_query("T&E rules", gl) == "T&E (travel and expense) rules"
 
 
-# ---- calculator
+# calculator
 def test_calculate_basic():
     assert agent.calculate("18 - 11") == "7"
     assert agent.calculate("2 ** 10") == "1024"
@@ -85,7 +85,7 @@ def test_calculate_refuses_import_and_other_code():
         raise AssertionError("calculate accepted %r" % bad)
 
 
-# ---- agent loop
+# agent loop
 def _tools():
     return {"search_policy": lambda query, k=3: "stub result 18 days of paid annual leave", "calculate": agent.calculate}
 
