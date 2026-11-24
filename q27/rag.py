@@ -1,6 +1,6 @@
 """Q27 retrieval layer: chunkers, index, glossary rewriting, retrieval metrics.
 
-All offsets are CHARACTER offsets into the file read as text (utf-8, newline='' so that
+All offsets are CHARACTER offsets into the file read as text (utf-8, universal newlines, so that
 nothing is translated). Standard library only; embeddings come from the provided kestrel_embed.
 """
 import glob
@@ -11,7 +11,7 @@ import sys
 
 DATA_DIR = os.environ.get("Q27_DATA") or os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "q27")
 sys.path.insert(0, DATA_DIR)
-from kestrel_embed import embed, cosine  # noqa: E402  (provided file, not modified)
+from kestrel_embed import embed, cosine  # pyright: ignore[reportMissingImports]  # noqa: E402  (provided file, not modified)
 
 K = 3
 WORD_BUDGET = 300
@@ -24,12 +24,12 @@ CONFIGS = {
 }
 
 
-# ------------------------------------------------------------------ loading
+# loading
 def load_corpus(data_dir=None):
     data_dir = data_dir or DATA_DIR
     corpus = {}
     for path in sorted(glob.glob(os.path.join(data_dir, "corpus", "*.md"))):
-        with open(path, encoding="utf-8", newline="") as f:
+        with open(path, encoding="utf-8") as f:
             corpus[os.path.basename(path)] = f.read()
     return corpus
 
@@ -39,7 +39,8 @@ def load_jsonl(path):
         return [json.loads(line) for line in f if line.strip()]
 
 
-# ------------------------------------------------------------------ chunkers
+# chunkers
+
 def make_chunk(doc, text, start, end):
     return {"doc": doc, "start": start, "end": end, "text": text[start:end]}
 
@@ -120,7 +121,7 @@ def build_chunks(corpus, config):
     return out
 
 
-# ------------------------------------------------------------------ index + retrieval
+# index + retrieval
 class Index:
     def __init__(self, chunks):
         self.chunks = chunks
@@ -142,7 +143,7 @@ def rewrite_query(query, glossary):
     return pattern.sub(lambda m: "%s (%s)" % (m.group(1), glossary[m.group(1)]), query)
 
 
-# ------------------------------------------------------------------ metrics
+# metrics
 def is_relevant(chunk, gold):
     return any(chunk["doc"] == g["doc"] and chunk["start"] <= g["start"] and chunk["end"] >= g["end"] for g in gold)
 
