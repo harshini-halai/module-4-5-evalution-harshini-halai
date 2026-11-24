@@ -5,6 +5,7 @@ Stages run in order A -> B -> C -> D -> E -> F. Standard library only.
 """
 import argparse
 import csv
+import importlib.util
 import json
 import os
 import random
@@ -20,7 +21,8 @@ DEDUP_WARN_FRACTION = 0.20
 NEAR_THRESHOLD = 0.80
 
 
-# ---------------------------------------------------------------- helpers
+# helpers
+
 def norm_text(text):
     """lower-case and collapse whitespace (used for exact-duplicate checks)."""
     return " ".join(text.lower().split())
@@ -43,7 +45,8 @@ def read_jsonl_lines(path):
                 yield n, line.rstrip("\n")
 
 
-# ---------------------------------------------------------------- Part A
+# Part A
+
 def normalise_record(raw):
     """Return (canonical_record, None) or (None, (reason, detail)).
 
@@ -114,8 +117,8 @@ def stage_a(path):
             valid.append(rec)
     return valid, rejections
 
+# Part B
 
-# ---------------------------------------------------------------- Part B
 def resolve_effective_licence(model, by_id, seen=None):
     """Follow base_model links. Returns (effective_licence, mau_limit, chain)."""
     seen = seen or set()
@@ -169,7 +172,7 @@ def stage_b_records(records, dataset_registry):
     return kept, dropped
 
 
-# ---------------------------------------------------------------- Part C
+# Part C
 def record_text(r):
     return r["instruction"] + " " + r["input"] + " " + r["output"]
 
@@ -205,7 +208,7 @@ def dedupe(records):
     return kept, rejections, n_exact, len(after_exact) - len(kept)
 
 
-# ---------------------------------------------------------------- Part D
+# Part D
 def prompt_text(item):
     return item["instruction"] + " " + item.get("input", "")
 
@@ -228,7 +231,7 @@ def find_leaks(eval_items, pool):
     return clean, leaks
 
 
-# ---------------------------------------------------------------- Part E
+# Part E
 def split_train_val(records, seed=4526):
     by_intent = {}
     for r in records:
@@ -243,7 +246,7 @@ def split_train_val(records, seed=4526):
     return train, val
 
 
-# ---------------------------------------------------------------- Part F
+# Part F
 def score_item(answer, intent, rubric):
     checks = rubric["intents"].get(intent, [])
     passed = applied = 0
@@ -273,7 +276,7 @@ def score_model(model, items, rubric):
             "per_intent": {k: round(sum(v) / len(v) * 100, 1) for k, v in sorted(per_intent.items())}}
 
 
-# ---------------------------------------------------------------- IO + main
+# IO + main
 def write_jsonl(path, rows):
     with open(path, "w", encoding="utf-8") as f:
         for r in rows:
@@ -281,8 +284,13 @@ def write_jsonl(path, rows):
 
 
 def run(data_dir, out_dir):
-    sys.path.insert(0, data_dir)
-    from stub_models import BaseStub, FineTunedStub  # provided file, not modified
+    stub_models_path = os.path.join(data_dir, "stub_models.py")
+    spec = importlib.util.spec_from_file_location("q26_stub_models", stub_models_path)
+    if spec is None or spec.loader is None:
+        raise ImportError("could not load stub_models.py from %s" % data_dir)
+    stub_models = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(stub_models)
+    BaseStub, FineTunedStub = stub_models.BaseStub, stub_models.FineTunedStub
 
     os.makedirs(out_dir, exist_ok=True)
     registry = json.load(open(os.path.join(data_dir, "dataset_registry.json"), encoding="utf-8"))
