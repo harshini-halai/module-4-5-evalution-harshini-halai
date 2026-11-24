@@ -1,0 +1,298 @@
+{
+  "metrics_table": [
+    {
+      "config": "C1",
+      "queries": "raw",
+      "n_chunks": 33,
+      "precision@3": 0.2167,
+      "recall@3": 0.575,
+      "MRR": 0.575,
+      "context_words": 160.2,
+      "failed_queries": [
+        "Q01",
+        "Q06",
+        "Q07",
+        "Q09",
+        "Q10",
+        "Q11",
+        "Q12",
+        "Q14",
+        "Q18"
+      ],
+      "within_300_word_budget": true
+    },
+    {
+      "config": "C1",
+      "queries": "rewritten",
+      "n_chunks": 33,
+      "precision@3": 0.2167,
+      "recall@3": 0.575,
+      "MRR": 0.6,
+      "context_words": 153.6,
+      "failed_queries": [
+        "Q01",
+        "Q06",
+        "Q07",
+        "Q09",
+        "Q10",
+        "Q11",
+        "Q12",
+        "Q14",
+        "Q18"
+      ],
+      "within_300_word_budget": true
+    },
+    {
+      "config": "C2",
+      "queries": "raw",
+      "n_chunks": 41,
+      "precision@3": 0.3,
+      "recall@3": 0.725,
+      "MRR": 0.75,
+      "context_words": 167.8,
+      "failed_queries": [
+        "Q01",
+        "Q06",
+        "Q09",
+        "Q12",
+        "Q16",
+        "Q18"
+      ],
+      "within_300_word_budget": true
+    },
+    {
+      "config": "C2",
+      "queries": "rewritten",
+      "n_chunks": 41,
+      "precision@3": 0.3333,
+      "recall@3": 0.825,
+      "MRR": 0.8,
+      "context_words": 168.8,
+      "failed_queries": [
+        "Q06",
+        "Q12",
+        "Q16",
+        "Q18"
+      ],
+      "within_300_word_budget": true
+    },
+    {
+      "config": "C3",
+      "queries": "raw",
+      "n_chunks": 30,
+      "precision@3": 0.3167,
+      "recall@3": 0.9,
+      "MRR": 0.9,
+      "context_words": 177.4,
+      "failed_queries": [
+        "Q01",
+        "Q12"
+      ],
+      "within_300_word_budget": true
+    },
+    {
+      "config": "C3",
+      "queries": "rewritten",
+      "n_chunks": 30,
+      "precision@3": 0.3333,
+      "recall@3": 0.95,
+      "MRR": 0.95,
+      "context_words": 169.5,
+      "failed_queries": [
+        "Q12"
+      ],
+      "within_300_word_budget": true
+    },
+    {
+      "config": "C4",
+      "queries": "raw",
+      "n_chunks": 11,
+      "precision@3": 0.3333,
+      "recall@3": 0.95,
+      "MRR": 0.925,
+      "context_words": 475.4,
+      "failed_queries": [
+        "Q01"
+      ],
+      "within_300_word_budget": false
+    },
+    {
+      "config": "C4",
+      "queries": "rewritten",
+      "n_chunks": 11,
+      "precision@3": 0.35,
+      "recall@3": 1.0,
+      "MRR": 0.95,
+      "context_words": 479.9,
+      "failed_queries": [],
+      "within_300_word_budget": false
+    }
+  ],
+  "chosen_configuration": {
+    "config": "C3",
+    "chunker": {
+      "chunker": "paragraph",
+      "max_words": 80
+    },
+    "query_rewriting": true,
+    "k": 3
+  },
+  "grounding": [
+    {
+      "answer_id": "A1",
+      "query_id": "Q01",
+      "claims": [
+        {
+          "claim": "Full-time employees get 18 days of paid annual leave per year, credited at 1.5 days a month.",
+          "token_overlap": 0.933,
+          "missing_numbers": [],
+          "grounded": true
+        }
+      ],
+      "flagged": false
+    },
+    {
+      "answer_id": "A2",
+      "query_id": "Q13",
+      "claims": [
+        {
+          "claim": "Express costs an extra 180 rupees per parcel.",
+          "token_overlap": 0.667,
+          "missing_numbers": [],
+          "grounded": true
+        },
+        {
+          "claim": "Express is available in all tier-2 cities.",
+          "token_overlap": 0.2,
+          "missing_numbers": [
+            "2"
+          ],
+          "grounded": false
+        }
+      ],
+      "flagged": true
+    },
+    {
+      "answer_id": "A3",
+      "query_id": "Q07",
+      "claims": [
+        {
+          "claim": "If you miss the seven-day window, your claim is only looked at when you can show the original carrier seal was intact when the parcel arrived.",
+          "token_overlap": 0.667,
+          "missing_numbers": [],
+          "grounded": true
+        }
+      ],
+      "flagged": false
+    },
+    {
+      "answer_id": "A4",
+      "query_id": "Q19",
+      "claims": [
+        {
+          "claim": "Billing disputes must be raised within 30 days of the invoice date through the merchant dashboard.",
+          "token_overlap": 0.818,
+          "missing_numbers": [
+            "30"
+          ],
+          "grounded": false
+        }
+      ],
+      "flagged": true
+    },
+    {
+      "answer_id": "A5",
+      "query_id": "Q17",
+      "claims": [
+        {
+          "claim": "Report any suspected security incident to the Security Operations Centre within 4 hours of discovering it.",
+          "token_overlap": 0.909,
+          "missing_numbers": [],
+          "grounded": true
+        }
+      ],
+      "flagged": false
+    },
+    {
+      "answer_id": "A6",
+      "query_id": "Q11",
+      "claims": [
+        {
+          "claim": "Standard delivery to tier-2 cities is committed within 4 business days of pickup.",
+          "token_overlap": 0.182,
+          "missing_numbers": [
+            "2",
+            "4"
+          ],
+          "grounded": false
+        }
+      ],
+      "flagged": true
+    }
+  ],
+  "agent_runs": [
+    {
+      "scenario": "leave_balance",
+      "final_answer": "You have 7 paid annual leave days left this year (entitlement 18 days, 11 used).",
+      "termination_reason": "final_answer",
+      "model_calls": 3,
+      "audit": [
+        [
+          "retrieval_found_entitlement",
+          true
+        ],
+        [
+          "calculator_returned_number",
+          true
+        ]
+      ]
+    },
+    {
+      "scenario": "looping",
+      "final_answer": null,
+      "termination_reason": "repeated_call",
+      "model_calls": 3,
+      "audit": []
+    },
+    {
+      "scenario": "unknown_tool",
+      "final_answer": "I can't delete records. I can only search policies and do calculations.",
+      "termination_reason": "final_answer",
+      "model_calls": 2,
+      "audit": [
+        [
+          "unknown_tool_reported_as_error",
+          true
+        ]
+      ]
+    },
+    {
+      "scenario": "bad_arguments",
+      "final_answer": "Expense claims must be submitted within 45 days of the expense date.",
+      "termination_reason": "final_answer",
+      "model_calls": 3,
+      "audit": [
+        [
+          "bad_json_reported_as_error",
+          true
+        ],
+        [
+          "retrieval_found_deadline",
+          true
+        ]
+      ]
+    },
+    {
+      "scenario": "unsafe_expression",
+      "final_answer": "2 to the power 10 is 1024.",
+      "termination_reason": "final_answer",
+      "model_calls": 3,
+      "audit": [
+        [
+          "unsafe_expression_refused",
+          true
+        ]
+      ]
+    }
+  ]
+}
