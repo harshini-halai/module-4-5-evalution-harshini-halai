@@ -26,11 +26,7 @@ Run from the repo root:
 
 ## 2. Which gain would I show my manager?
 
-The clean gain, +4.3. Ten eval questions also exist in the training pool, and the
-fine-tuned model has memorised their answers: it scores 100.0 on those ten, against
-55.0 for the base model. That memorisation lifts the full-set gain to +10.9. On the
-clean set the model only sees questions it has not trained on, which is what real
-customers will send, so +4.3 is the honest estimate.
+I would show the clean gain. The full-set gain is bigger because some eval items also exist in the training data (leaks), so the fine-tuned model has basically seen the answers and just repeats them. That is memorising, not getting better at support. The clean set only has items the model never saw, so it shows what customers will actually get. The leaked-only score of the fine-tuned model being much higher than its clean score is the proof.
 
 ## 3. Did fine-tuning make an intent worse?
 
@@ -41,14 +37,7 @@ promise the company cannot keep (legal and trust risk), and an average gain hide
 
 ## 4. Eligible base models
 
-Eligible: kestrel/candidate-qwenlike-1.5b (Apache-2.0), kestrel/candidate-mistrallike-7b
-(Apache-2.0), kestrel/candidate-llamalike-3b (custom-community, 2M MAU is within the
-700M limit) and community/llamalike-3b-support-ft. The last one declares Apache-2.0,
-but it is derived from candidate-llamalike-3b, so its effective licence is the base
-model's custom-community licence. It is still eligible because 2M MAU is below the
-inherited 700M limit, but the report carries a warning because declared and effective
-licences differ. Blocked: medtune-3b (CC-BY-NC), research-2b (research-only),
-fastchat-1b ("other", unclear).
+community/llamalike-3b-support-ft: its declared licence looks fine, but it names a base_model, so the effective licence is the base model's licence. The base is custom-community, and its mau_limit is below our 2,000,000 MAU, so the model is blocked, and it gets a warning because declared and effective licence differ. [check this matches my licence_report.json]
 
 ## 5. Why leakage runs after the licence gate
 
@@ -57,10 +46,6 @@ matches them is not leakage: the model never saw it. Checking against the raw da
 (after Part A only) flags 12 eval items, against 10 for the post-gate pool, so two
 good eval items would be thrown away for nothing.
 
-## 6. Instruction-only comparison
+## 6.Example where comparing instructions alone is wrong
 
-R0285 ("I want to cancel my order KL552019874 before it ships...") and R0286 ("I want
-to cancel my return KL552019874 before it ships...") have instruction similarity 0.86,
-so an instruction-only rule would drop R0286. But their answers differ: orders are
-cancelled by the merchant, while a return is cancelled on the Kestrel returns page.
-Whole-record similarity is only 0.39, so both records are correctly kept.
+Example: records [id1] and [id2] have the same (or almost the same) instruction, but different input and output, for example the same question about a parcel but a different situation and a different answer. If I compared only instructions they would look like duplicates and one would be removed, but they teach different answers, so both must be kept. Comparing the whole record (instruction + input + output) avoids this.
