@@ -133,3 +133,13 @@ def test_grounding_flags_wrong_number_and_passes_supported_claim():
 
 def test_grounding_ignores_thousands_commas():
     assert grounding.numbers_in("Costs 1,500 rupees") == {"1500"}
+
+# ---- corpus loading must not depend on the checkout's line endings
+def test_load_corpus_normalises_crlf():
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        os.makedirs(os.path.join(d, "corpus"))
+        with open(os.path.join(d, "corpus", "a.md"), "wb") as f:
+            f.write(b"Hello world.\r\n\r\nSecond paragraph here.\r\n")
+        text = rag.load_corpus(d)["a.md"]
+    assert "\r" not in text and text.startswith("Hello world.\n\nSecond")
